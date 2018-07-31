@@ -15,22 +15,27 @@ int main (){
 
 void displayboard(int ACROSS, int UPDOWN)
 {
-
+    int counter=0;
     char x[50] = {};
     char y[50] = {};
+    char space[49];
 
 
     x[ACROSS] = 'x';
     y[UPDOWN] = 'y';
 
 for(ACROSS=0; ACROSS<50; ACROSS++){
-        for(UPDOWN=0; UPDOWN<50; UPDOWN++){
-
+        system("cls");
+    for(UPDOWN=0; UPDOWN<50; UPDOWN++){
+        for(counter=0; counter<50; counter++){
+        if(counter<ACROSS && counter<UPDOWN){
+        x[counter]=' ';
+        }else if(counter==ACROSS && counter==UPDOWN){
+            x[counter]= 'X';
+        }
             }
-
-
-    if(ACROSS>=40 && UPDOWN>=40){
-    printf("\n\t  ________ ________ ________ ________ ________ ________ ________ ________ ________ ________ ");
+        }
+            printf("\n\t  ________ ________ ________ ________ ________ ________ ________ ________ ________ ________ ");
     printf("\n\t | GO  TO |        |        |        |        |        |        |  GO TO |        |        |");
     printf("\n\t | BOX 49 |        |        |        |        |        |        |  BOX 1 |        |  WIN!  |");
     printf("\n\t |   %d   |   %d   |   %d   |   %d   |   %d   |   %d   |   %d   |   %d   |   %d   |   %d   |",41,42,43,44,45,46,47,48,49,50);
@@ -66,11 +71,8 @@ for(ACROSS=0; ACROSS<50; ACROSS++){
                     x[5],y[5],x[6],y[6],x[7],y[7],x[8],y[8],x[9],y[9]);
     printf("\n\t |________|________|________|________|________|________|________|________|________|________|");
     printf("\n");
-                x[ACROSS] = 'x';
-        }
-    Sleep(500);
-    system("cls");
+        Sleep(500);
     }
-
 }
+
 
