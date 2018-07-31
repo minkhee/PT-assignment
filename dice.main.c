@@ -3,12 +3,16 @@
 #include <time.h>
 
 int main()
-{
+{int dice=0;
     printf("PRESS ENTER : ");
     getchar();
 
     srand(time(0));
-    printf("\nYOU GET NUMBER %d\n",(rand()%6)+1);
+
+    dice=(rand()%6)+1;
+    printf("%d", (rand()%6)+1);
+    printf("\nYOU GET NUMBER %d\n", dice);
+
 
     return 0;
     }
