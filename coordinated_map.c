@@ -8,6 +8,7 @@
 int main (){
 
     displayboard();
+
     return 0;
 }
 
@@ -18,10 +19,17 @@ void displayboard(int ACROSS, int UPDOWN)
     char x[50] = {};
     char y[50] = {};
 
+
     x[ACROSS] = 'x';
     y[UPDOWN] = 'y';
 
+for(ACROSS=0; ACROSS<50; ACROSS++){
+        for(UPDOWN=0; UPDOWN<50; UPDOWN++){
 
+            }
+
+
+    if(ACROSS>=40 && UPDOWN>=40){
     printf("\n\t  ________ ________ ________ ________ ________ ________ ________ ________ ________ ________ ");
     printf("\n\t | GO  TO |        |        |        |        |        |        |  GO TO |        |        |");
     printf("\n\t | BOX 49 |        |        |        |        |        |        |  BOX 1 |        |  WIN!  |");
@@ -58,6 +66,11 @@ void displayboard(int ACROSS, int UPDOWN)
                     x[5],y[5],x[6],y[6],x[7],y[7],x[8],y[8],x[9],y[9]);
     printf("\n\t |________|________|________|________|________|________|________|________|________|________|");
     printf("\n");
+                x[ACROSS] = 'x';
+        }
+    Sleep(500);
+    system("cls");
+    }
 
 }
 
