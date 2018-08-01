@@ -104,24 +104,39 @@ void displayboard1(int ACROSS, int UPDOWN)
 
 void displayboard2(int ACROSS, int UPDOWN)
 {
-    int counter=0;
+   int counter=0, movement=0, dice, limit, board, position=-1, space=-2, times=0;
     char x[50] = {};
     char y[50] = {};
 
- for(ACROSS=0; ACROSS<50; ACROSS++){
-        system("cls");
-    for(UPDOWN=0; UPDOWN<50; UPDOWN++){
-        for(counter=0; counter<50; counter++){
-        if(counter<ACROSS && counter<UPDOWN){
-        x[counter]=' ';
-        y[counter]=' ';
-        }else if(counter==ACROSS && counter==UPDOWN){
-            x[counter]= 'X';
-            y[counter]= 'Y';
+ for(board=0; board<=times; board++){//Counter that will keep plus one everytime enter is pressed
+    printf("PRESS ENTER:");
+    times++;//Will plus one whenever enter is pressed
+    getchar();
+    srand(time(0));
+    dice=(rand()%6)+1;
+    for(ACROSS=0; ACROSS<dice; ACROSS++){//Counter that will run until it reaches the value of dice
+        position++;//The position of the player
+        space++;//The empty spaces before the player position
+        if(position==50 && space==49 && board<times){
+            printf("\t                                        YOU WIN!!!!!!");
+            return 0;
         }
+        system("cls");//To refresh the screen
+            for(counter=0; counter<50; counter++){
+               if(counter==ACROSS){//conditions for printing space
+                x[space]=' ';
+                y[space]=' ';
+                }else if(dice==1 && position==0 && space==-1){//This is to ensure that the player will still move one space if dice is 1
+                    x[1]= 'X';
+                    y[1]= 'Y';
+                    position=1;
+                    space=0;
+                }else{//Conditions for printing position of player
+                    x[position]='X';
+                    y[position]='Y';
             }
         }
-        printf("\n\t  _________ _________ _________ _________ _________ _________ _________ _________ _________ _________ ");
+    printf("\n\t  _________ _________ _________ _________ _________ _________ _________ _________ _________ _________ ");
     printf("\n\t | GO  TO  |         |         |         |         |         |         |  GO TO  |         |         |");
     printf("\n\t | BOX 49  |         |         |         |         |         |         |  BOX 1  |         |  WIN!   |");
     printf("\n\t |   %d    |   %d    |   %d    |   %d    |   %d    |   %d    |   %d    |   %d    |   %d    |   %d    |",41,42,43,44,45,46,47,48,49,50);
@@ -157,34 +172,52 @@ void displayboard2(int ACROSS, int UPDOWN)
     printf("\n\t |   %c %c   |   %c %c   |   %c %c   |   %c %c   |   %c %c   |   %c %c   |   %c %c   |   %c %c   |   %c %c   |   %c %c   |",x[0],y[0],x[1],y[1],x[2],y[2],
            x[3],y[3],x[4],y[4],x[5],y[5],x[6],y[6],x[7],y[7],x[8],y[8],x[9],y[9]);
     printf("\n\t |_________|_________|_________|_________|_________|_________|_________|_________|_________|_________|");
+    printf("\n\t                                             YOU GOT A %d", dice);
     printf("\n");
         Sleep(500);
     }
+ }
 }
 
 void displayboard3(int ACROSS, int UPDOWN)
 {
-    int counter=0;
+    int counter=0, movement=0, dice, limit, board, position=-1, space=-2, times=0;
     char x[50] = {};
     char y[50] = {};
     char o[50] = {};
 
- for(ACROSS=0; ACROSS<50; ACROSS++){
-        system("cls");
-    for(UPDOWN=0; UPDOWN<50; UPDOWN++){
-        for(counter=0; counter<50; counter++){
-        if(counter<ACROSS && counter<UPDOWN){
-        x[counter]=' ';
-        y[counter]=' ';
-        o[counter]=' ';
-        }else if(counter==ACROSS && counter==UPDOWN){
-            x[counter]= 'X';
-            y[counter]= 'Y';
-            o[counter]= 'O';
+ for(board=0; board<=times; board++){//Counter that will keep plus one everytime enter is pressed
+    printf("PRESS ENTER:");
+    times++;//Will plus one whenever enter is pressed
+    getchar();
+    srand(time(0));
+    dice=(rand()%6)+1;
+    for(ACROSS=0; ACROSS<dice; ACROSS++){//Counter that will run until it reaches the value of dice
+        position++;//The position of the player
+        space++;//The empty spaces before the player position
+        if(position==50 && space==49 && board<times){
+            printf("\t                                        YOU WIN!!!!!!");
+            return 0;
         }
+        system("cls");//To refresh the screen
+            for(counter=0; counter<50; counter++){
+               if(counter==ACROSS){//conditions for printing space
+                x[space]=' ';
+                y[space]=' ';
+                o[space]=' ';
+                }else if(dice==1 && position==0 && space==-1){//This is to ensure that the player will still move one space if dice is 1
+                    x[1]= 'X';
+                    y[1]= 'Y';
+                    o[1]= 'O';
+                    position=1;
+                    space=0;
+                }else{//Conditions for printing position of player
+                    x[position]='X';
+                    y[position]='Y';
+                    o[position]='O';
             }
         }
-            printf("\n\t  _________ _________ _________ _________ _________ _________ _________ _________ _________ _________ ");
+    printf("\n\t  _________ _________ _________ _________ _________ _________ _________ _________ _________ _________ ");
     printf("\n\t | GO  TO  |         |         |         |         |         |         |  GO TO  |         |         |");
     printf("\n\t | BOX 49  |         |         |         |         |         |         |  BOX 1  |         |  WIN!   |");
     printf("\n\t |   %d    |   %d    |   %d    |   %d    |   %d    |   %d    |   %d    |   %d    |   %d    |   %d    |",41,42,43,44,45,46,47,48,49,50);
@@ -201,7 +234,7 @@ void displayboard3(int ACROSS, int UPDOWN)
     printf("\n\t |_________|_________|_________|_________|_________|_________|_________|_________|_________|_________|");
     printf("\n\t |         |  GO TO  |         |         |         |         |         |         |         |         |");
     printf("\n\t |         |  BOX 33 |         |         |         |         |         |         |         |         |");
-    printf("\n\t |   %d    |   %d    |   %d    |   %d    |   %d    |   %d    |   %d    |   %d    |   %d    |   %d    |",21,22,23,24,25,26,27,28,29,30);
+    printf("\n\t |   %d    |   %d    |   %d    |   %d    |   %d    |   %d    |   %d    |   %d    |   %d    |   %d    |",21,22,23,24,25,26,27,28,29,30, dice);
     printf("\n\t |         |         |         |         |         |         |         |         |         |         |");
     printf("\n\t |  %c %c %c  |  %c %c %c  |  %c %c %c  |  %c %c %c  |  %c %c %c  |  %c %c %c  |  %c %c %c  |  %c %c %c  |  %c %c %c  |  %c %c %c  |",x[20],y[20],o[20],x[21],y[21],o[21],x[22],y[22],
            o[22],x[23],y[23],o[23],x[24],y[24],o[24],x[25],y[25],o[25],x[26],y[26],o[26],x[27],y[27],o[27],x[28],y[28],o[28],x[29],y[29],o[29]);
@@ -220,9 +253,10 @@ void displayboard3(int ACROSS, int UPDOWN)
     printf("\n\t |  %c %c %c  |  %c %c %c  |  %c %c %c  |  %c %c %c  |  %c %c %c  |  %c %c %c  |  %c %c %c  |  %c %c %c  |  %c %c %c  |  %c %c %c  |",x[0],y[0],o[0],x[1],y[1],o[1],x[2],y[2],o[2],
            x[3],y[3],o[3],x[4],y[4],o[4],x[5],y[5],o[5],x[6],y[6],o[6],x[7],y[7],o[7],x[8],y[8],o[8],x[9],y[9],o[9]);
     printf("\n\t |_________|_________|_________|_________|_________|_________|_________|_________|_________|_________|");
+    printf("\n\t                                             YOU GOT A %d", dice);
     printf("\n");
-        Sleep(500);
+        Sleep(250);//To let the player see movement
+        }
     }
-}
-
+ }
 
