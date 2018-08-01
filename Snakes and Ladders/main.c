@@ -147,5 +147,3 @@ void displayboard1(int ACROSS, int UPDOWN)
 }
 }
 }
-
-
