@@ -565,7 +565,7 @@ void teleport_o(int positionO){
 
 
 void reverse_x()
-{
+{int x;
     int positionX=1;
 
     if(positionX==8){
@@ -594,7 +594,7 @@ void reverse_x()
 }
 
 void reverse_y()
-{
+{int y;
     int positionY=1;
 
     if(positionY==8){
@@ -623,7 +623,7 @@ void reverse_y()
 }
 
 void reverse_o()
-{
+{   int o;
     int positionO=1;
 
     if(positionO==8){
